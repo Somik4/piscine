@@ -6,7 +6,7 @@
 /*   By: osif <marvin@42.fr>                        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/22 11:15:40 by osif              #+#    #+#             */
-/*   Updated: 2023/08/23 09:40:55 by osif             ###   ########.fr       */
+/*   Updated: 2023/08/26 13:46:35 by osif             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,7 @@ char	*ft_strncpy(char *dest, char *src, unsigned int n)
 	while (a < n)
 	{
 		dest [a] = '\0';
-		return (dest);
+		a++;
 	}
+	return (dest);
 }

@@ -1,30 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_str_is_lowercase.c                              :+:      :+:    :+:   */
+/*   ft_strlcpy.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: osif <marvin@42.fr>                        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/08/22 17:06:01 by osif              #+#    #+#             */
-/*   Updated: 2023/08/26 15:46:35 by osif             ###   ########.fr       */
+/*   Created: 2023/08/26 17:09:50 by osif              #+#    #+#             */
+/*   Updated: 2023/08/26 19:52:30 by osif             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	ft_str_is_lowercase(char *str)
+unsigned int	ft_strlcpy(char *dest, char *src, unsigned int size)
 {
-	int	a;
+	unsigned int	a;
+	unsigned int	b;
 
 	a = 0;
-	if (str [a] == '\0')
-		return (1);
-	while (str [a] != '\0')
+	b = 0;
+	while (src [b] != '\0')
 	{
-		if (str [a] >= 'a' && str [a] <= 'z' )
+		b++;
+		while ((a < size - 1) && src [a] != '\0')
 		{
+			dest [a] = src [a];
 			a++;
 		}
-		else
-			return (0);
+		if (size > 0)
+		{
+			dest [a] = '\0';
+		}
 	}
-	return (1);
+	return (b);
 }

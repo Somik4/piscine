@@ -6,7 +6,7 @@
 /*   By: osif <marvin@42.fr>                        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/22 17:29:56 by osif              #+#    #+#             */
-/*   Updated: 2023/08/22 17:54:25 by osif             ###   ########.fr       */
+/*   Updated: 2023/08/26 14:27:15 by osif             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,8 +20,9 @@ int	ft_str_is_uppercase(char *str)
 	while (str[a] != '\0')
 	{
 		if (str[a] >= 'A' && str [a] <= 'Z')
-			return (1);
 		a++;
+		else
+			return (0);
 	}
-	return (0);
+	return (1);
 }

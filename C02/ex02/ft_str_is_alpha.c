@@ -6,7 +6,7 @@
 /*   By: osif <marvin@42.fr>                        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/22 16:08:39 by osif              #+#    #+#             */
-/*   Updated: 2023/08/22 16:50:54 by osif             ###   ########.fr       */
+/*   Updated: 2023/08/26 14:39:22 by osif             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,11 +21,13 @@ int	ft_str_is_alpha(char *str)
 	}
 	while (str[a] != '\0')
 	{
-		if (str[a] >= 'A' && str[a] <= 'Z')
-			return (1);
-		else if (str[a] >= 'a' && str[a] <= 'z')
-			return (1);
-		a++;
+		if ((str[a] >= 'A' && str[a] <= 'Z')
+			|| (str[a] >= 'a' && str[a] <= 'z'))
+		{
+			a++;
+		}
+		else
+			return (0);
 	}
-	return (0);
+	return (1);
 }
