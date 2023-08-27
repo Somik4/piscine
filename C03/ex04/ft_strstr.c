@@ -6,12 +6,26 @@
 /*   By: osif <marvin@42.fr>                        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/23 18:26:31 by osif              #+#    #+#             */
-/*   Updated: 2023/08/26 17:08:57 by osif             ###   ########.fr       */
+/*   Updated: 2023/08/27 15:20:32 by osif             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 char	*ft_strstr(char *str, char *to_find)
-{ 
+{
+	int	a;
+	int	b;
 
-	
+	if (*to_find == '\0')
+		return (str);
+	a = 0;
+	while (str[a] != '\0')
+	{
+		b = 0;
+		while (str[a + b] == to_find[b] && str[a + b] != '\0')
+			b++;
+		if (to_find[b] == '\0')
+			return (&str[a]);
+		a++;
+	}
+	return (0);
 }
