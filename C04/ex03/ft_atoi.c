@@ -5,35 +5,34 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: osif <marvin@42.fr>                        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/08/28 11:31:11 by osif              #+#    #+#             */
-/*   Updated: 2023/08/28 13:23:00 by osif             ###   ########.fr       */
+/*   Created: 2023/08/29 16:59:52 by osif              #+#    #+#             */
+/*   Updated: 2023/08/29 17:14:01 by osif             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 int	ft_atoi(char *str)
 {
 	int	i;
-	int	sign;
 	int	num;
+	int	sign;
 
 	i = 0;
-	sign = 1;
 	num = 0;
-	while (str[i] != '\0')
+	sign = 1;
+	while (str[i] && ((str[i] >= 9 && str[i] <= 13) || str[i] == ' '))
+		i++;
+	while (str[i] && (str[i] == '-' || str[i] == '+'))
 	{
-		while (str[i] == 32 || (str[i] >= 9 && str[i] <= 13))
-			i++;
-		while (str[i] == '-' || str[i] == '+')
+		if (str[i] == '-')
 		{
-			if (str[i] == '-')
-				sign *= -1;
-			i++;
+			sign *= -1;
 		}
-		if (str[i] >= '0' && str[i] <= '9')
-			num = num * 10 + (str[i] - '0');
-		else
-			return (sign * num);
 		i++;
 	}
-	return (0);
+	while (str[i] && (str[i] >= '0' && str[i] <= '9'))
+	{
+		num = num * 10 + (str[i] - '0');
+		i++;
+	}
+	return (num * sign);
 }

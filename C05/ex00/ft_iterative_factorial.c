@@ -1,25 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putstr.c                                        :+:      :+:    :+:   */
+/*   ft_iterative_factorial.c                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: osif <marvin@42.fr>                        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/08/27 16:52:15 by osif              #+#    #+#             */
-/*   Updated: 2023/08/28 17:52:54 by osif             ###   ########.fr       */
+/*   Created: 2023/08/29 13:04:52 by osif              #+#    #+#             */
+/*   Updated: 2023/08/29 13:12:53 by osif             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <unistd.h>
-
-void	ft_putstr(char *str)
+int	ft_iterative_factorial(int nb)
 {
-	int	a;
+	int	i;
+	int	num;
 
-	a = 0;
-	while (str[a] != '\0')
+	i = 1;
+	num = 1;
+	if (nb < 0 || nb > 2147483647)
+		return (0);
+	else if (nb == 0)
+		return (1);
+	while (nb > 1)
 	{
-		write(1, &str[a], 1);
-		a++;
+		num = num * nb;
+		nb --;
 	}
+	return (num);
 }
