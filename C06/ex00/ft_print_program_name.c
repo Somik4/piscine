@@ -1,27 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_recursive_factorial.c                           :+:      :+:    :+:   */
+/*   ft_print_program_name.c                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: osif <marvin@42.fr>                        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/08/30 16:38:58 by osif              #+#    #+#             */
-/*   Updated: 2023/08/30 17:25:01 by osif             ###   ########.fr       */
+/*   Created: 2023/08/30 18:06:45 by osif              #+#    #+#             */
+/*   Updated: 2023/08/30 18:12:47 by osif             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	ft_recursive_factorial(int nb)
+#include <unistd.h>
+
+int	main(int arc, char **arv)
 {
 	int	i;
 
-	i = 1;
-	if (nb < 0 || nb > 2147483647)
-		return (0);
-	else if (nb == 0)
-		return (1);
-	else if (nb > 0)
+	i = 0;
+	while (arv[0][i] != '\0')
 	{
-		return (nb * ft_recursive_factorial(nb - 1));
+		write (1, &arv[0][i], 1);
+		i++;
 	}
-	return (0);
+	write (1, "\n", 1);
 }
